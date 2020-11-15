@@ -1,0 +1,126 @@
+//Ghost motion
+
+@for $i from 1 through 10 {
+  @keyframes ghost-fly-#{$i} {
+    0% {
+      left: -150px;
+      top: random(90) + vh;
+    }
+
+    30% {
+      left: 30%;
+      top: random(80) + vh;
+    }
+
+    75% {
+      left: 75%;
+      top: random(80) + vh;
+    }
+
+    95% {
+      left: 86%;
+      top: random(90) + vh;
+      visibility: hidden;
+    }
+  }
+}
+
+@for $i from 1 through 10 {
+  .ghost-#{$i} {
+    position: absolute;
+    animation: ghost-fly-#{$i} 4s linear #{$i+$i}s 1 both;
+    width: (random(90)+60)+ px;
+  }
+}
+
+//Counter
+
+input[type="checkbox"] {
+  position: absolute;
+  visibility: hidden;
+  left: -150px;
+}
+
+input[type="checkbox"]:checked {
+  counter-increment: count;
+}
+
+input[type="checkbox"]:checked + img {
+  visibility: hidden;
+  display: none;
+}
+
+h1::after {
+  content: ' ' counter(count) '/10';
+}
+
+//Styles
+
+html{
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://avatars.mds.yandex.net/get-zen_doc/1107063/pub_5e16190efc69ab00aec50fb2_5e161dc8a3f6e400b6cd69fc/scale_1200) center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  //width: 100ch;
+  counter-reset: count;
+  position: relative;
+}
+
+h1 {
+  color: white;
+  position: absolute;
+  bottom: -16px;
+  left: 32px;
+}
+
+.container{
+  overflow: hidden;
+}
+
+
+@media (max-width: 700px) {
+  .body {
+    overflow-x:hidden;
+    height: 100%;
+    width: auto;
+  }
+}
+
+
+//Restart button
+
+.central{
+  position: absolute;
+  bottom: 1%;
+  right: 3%;
+}
+
+.restartButton {
+ box-shadow:inset 0px 1px 0px 0px #ffffff;
+ background-color:#ffffff;
+ border-radius:6px;
+ border:1px solid #dcdcdc;
+ display:inline-block;
+ cursor:pointer;
+ color: black;
+ font-size:15px;
+ font-weight:bold;
+ padding:6px 24px;
+}
+
+.restartButton:hover {
+  background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+}
+
+.restartButton:active {
+  position:relative;
+  top:1px;
+}
+
+/*# sourceMappingURL=style.css.map */
